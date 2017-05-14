@@ -38,6 +38,17 @@ class MoviesController < ApplicationController
   def destroy
   end
 
+  def edit_all
+    @movies = Movie.all
+  end
+
+  def update_all
+    p "*" * 25
+    p "Movies Controller :: Update All"
+    p "*" * 25
+    redirect_to movies_path
+  end
+
   private
 
     def movie_params
