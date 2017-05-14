@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  match 'movies/all/edit' => 'movies#edit_all', as: :edit_all_movies, via: :get
+  match 'movies/all' => 'movies#update_all', as: :update_all_movies, via: :put
+
   resources :movies
   
   # The priority is based upon order of creation: first created -> highest priority.
