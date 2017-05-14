@@ -1,1 +1,20 @@
 <h2>Bulk Movie Edit</h2>
+<%= form_for :movie, url: update_all_movies_path, html: { method: :put } do |f| %>
+  <table>
+    <tr>
+      <th>Movie Title</th>
+      <th>Release Year</th>
+    </tr>
+
+    <% @movies.each do |movie| %>
+      <tr>
+        <%= f.fields_for "movie[]", movie do |movie_fields| %>
+          <td><%= movie_fields.text_field :movie_title %></td>
+          <td><%= movie_fields.text_field :released %></td>
+        <% end %>
+      </tr>
+    <% end %>
+
+  </table>
+  <%= f.submit %>
+<% end %>
