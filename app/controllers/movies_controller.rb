@@ -45,6 +45,10 @@ class MoviesController < ApplicationController
   def update_all
     p "*" * 25
     p "Movies Controller :: Update All"
+    params[:movie].keys.each do |id|
+      movie = Movie.find(id.to_i)
+      movie.update(params['movie'][id].permit('movie_title', 'released'))
+    end
     p "*" * 25
     redirect_to movies_path
   end

@@ -8,7 +8,7 @@
 
     <% @movies.each do |movie| %>
       <tr>
-        <%= f.fields_for "movie[]", movie do |movie_fields| %>
+        <%= fields_for "movie[]", movie do |movie_fields| %>
           <td><%= movie_fields.text_field :movie_title %></td>
           <td><%= movie_fields.text_field :released %></td>
         <% end %>
