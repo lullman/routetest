@@ -11,6 +11,9 @@
         <%= fields_for "movie[]", movie do |movie_fields| %>
           <td><%= movie_fields.text_field :movie_title %></td>
           <td><%= movie_fields.text_field :released %></td>
+          <%= movie_fields.fields_for :actors do |actor_fields| %>
+            <td><%= actor_fields.text_field :actor_name, placeholder: "name" %></td>
+          <% end %>
         <% end %>
       </tr>
     <% end %>

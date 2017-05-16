@@ -42,6 +42,9 @@ class MoviesController < ApplicationController
 
   def edit_all
     @movies = Movie.all
+    @movies.each do |movie|
+      movie.actors.new
+    end
   end
 
   def update_all
