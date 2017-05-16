@@ -1,5 +1,9 @@
 <%= form_for @movie do |f| %>
-  <%= f.text_field :movie_title %>
-  <%= f.text_field :released %>
+  <%= f.text_field :movie_title, placeholder: "title" %>
+  <%= f.text_field :released, placeholder: "released" %>
+  <br>
+  <%= f.fields_for :actors do |ff| %>
+    <%= ff.text_field :actor_name, placeholder: "name" %><br>
+  <% end %>
   <%= f.submit %>
 <% end %>

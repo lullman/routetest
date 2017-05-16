@@ -1,2 +1,10 @@
 <h2><%= @movie.movie_title %></h2>
 <p><%= @movie.released %></p>
+<h3>Actors</h3>
+<table>
+  <% @movie.actors.each do |actor| %>
+    <tr>
+      <td><%= actor.actor_name %></td>
+    </tr>
+  <% end %>
+</table>

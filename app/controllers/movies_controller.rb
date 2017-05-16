@@ -10,10 +10,12 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    @movie.actors.new
   end
 
   def edit
     @movie = Movie.find(params[:id])
+    @movie.actors.new
   end
 
   def create
@@ -56,7 +58,7 @@ class MoviesController < ApplicationController
   private
 
     def movie_params
-      params.require(:movie).permit(:movie_title, :released)
+      params.require(:movie).permit(:movie_title, :released, actors_attributes: [ :actor_name] )
     end
 
 end
